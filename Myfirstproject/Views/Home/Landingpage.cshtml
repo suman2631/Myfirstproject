@@ -1,0 +1,990 @@
+﻿@*@using Myfirstproject.Models*@
+@*@model.Logindata*@
+@using Myfirstproject.Models
+@model Logindata
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>printer home page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    @* <link rel="stylesheet" href="style.css">*@
+    <style>
+        body {
+            width: 100%;
+        }
+
+        #header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 60px;
+            margin-bottom: 0px;
+            background-color: aliceblue;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            left: 0;
+        }
+
+        #navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            #navbar li {
+                list-style: none;
+                padding: 0 20px;
+                position: relative;
+            }
+
+                #navbar li a {
+                    text-decoration: none;
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: black;
+                    transition: 0.3s ease;
+                }
+
+                    #navbar li a:hover,
+                    #navbar li a.active {
+                        color: blueviolet;
+                    }
+
+                        #navbar li a.active::after,
+                        #navbar li a:hover::after {
+                            content: "";
+                            width: 30%;
+                            height: 2px;
+                            background: brown;
+                            position: absolute;
+                            bottom: -4px;
+                            left: 20px;
+                        }
+
+        .dropdown-menu {
+            position: relative;
+            z-index: 9999;
+        }
+
+
+        #hero {
+            width: 100%;
+            height: 400px;
+            background-color: palevioletred;
+        }
+
+        #hero {
+            background-image: url('../image/bg2.jpg');
+            background-repeat: no-repeat;
+            height: 400px;
+            width: 100%;
+            background-size: cover;
+            padding: 300px 60px 10px 60px;
+            margin-bottom: 0px;
+            justify-content: end;
+        }
+
+            #hero h1 {
+                color: cornsilk;
+            }
+
+            #hero h4 {
+                color: yellow;
+            }
+
+            #hero p {
+                color: white;
+            }
+
+            #hero button {
+                border-radius: 50%;
+                font-size: 16px;
+                height: 80px;
+                width: 90px;
+            }
+
+                #hero button:hover {
+                    background-color: brown;
+                    transition: 0.7s;
+                }
+
+        #slogan {
+            text-align: center;
+            background-color: black;
+            color: white;
+        }
+
+        #ajju {
+            background-color: lightslategray;
+            align-content: center;
+            display: flex;
+        }
+
+        #kanxi {
+            background-color: lightslategray;
+            align-content: center;
+            display: flex;
+        }
+
+        #ballu {
+            background-color: lightslategray;
+            align-content: center;
+            display: flex;
+        }
+
+        #suman {
+            margin-left: 0%;
+            margin-right: 0%;
+            s display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .product-item {
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-top: 5%;
+            /* Adjust the width as per your design */
+            text-align: center;
+        }
+
+        .product-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .product-img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+            .product-img:hover {
+                transform: scale(1.1); /* Increase image size on hover */
+            }
+
+        .product-description {
+            background-color: #fff;
+            padding: 10px;
+        }
+
+            .product-description h6 {
+                margin-bottom: 5px;
+                font-size: 18px;
+                font-weight: 700;
+            }
+
+            .product-description p {
+                font-size: 16px;
+                color: #777;
+            }
+
+        .star {
+            display: flex;
+            text-align: right;
+            margin-left: 35%;
+            font-weight: 800;
+        }
+
+        .price {
+            font-weight: 700;
+        }
+
+        #banner {
+            margin-top: 0%;
+            padding-top: 3%;
+            text-align: center;
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            background-image: url('../image/images.jpg');
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+        }
+
+            #banner button {
+                border-radius: 30%;
+                font-size: 16px;
+                height: 45px;
+                width: 115px;
+                justify-content: center;
+                text-align: left;
+                margin-left: 45%;
+                margin-right: 50%;
+            }
+
+                #banner button:hover {
+                    background-color: red;
+                    transition: 0.7s;
+                }
+
+            #banner h4 {
+                margin-top: 0%;
+                font-style: italic;
+                color: white;
+                font-size: 20px;
+            }
+
+            #banner h2 {
+                margin-top: 0%;
+                font-style: italic;
+                color: white;
+                font-size: 40px;
+            }
+
+        #Garmi {
+            text-align: center;
+        }
+
+        #collection {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+            #collection.box {
+                align-items: flex-start;
+                padding: 30px;
+                flex-direction: column;
+                display: flex;
+                background-image: url('../image/images.jpg');
+                justify-content: center;
+                min-width: 580px;
+                height: 400px;
+                background-size: cover;
+                background-position: center;
+            }
+
+        #newsletter {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            background-image: url('../../image/images.jpg');
+            background-repeat: no-repeat;
+            background-position: 20% 30%;
+            background-size: cover;
+        }
+
+            #newsletter h4 {
+                margin-top: 10%;
+                margin-left: 10%;
+                color: white;
+                font-size: 25px;
+                font-weight: 700;
+            }
+
+            #newsletter p {
+                margin-left: 10%;
+                color: gold;
+                font-size: 20px;
+                font-weight: 500;
+            }
+
+                #newsletter p span {
+                    color: yellowgreen;
+                }
+
+            #newsletter.newstext {
+                margin-top: 10%;
+                margin-left: 10%;
+            }
+
+        #form {
+            margin-right: 10%;
+        }
+
+        #newsletter input {
+            height: 3.125rem;
+            font-size: 14px;
+            width: 100%;
+            border: 1px solid;
+            outline: none;
+        }
+
+        #bttn {
+            background-color: silver;
+            color: wheat;
+            white-space: nowrap;
+        }
+        footer{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:space-between;
+        }
+            footer .col {
+                display: flex;
+                align-items:flex-start;
+                margin-bottom:20px;
+                flex-direction:column;
+            }
+    </style>
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="~/image/pnglogo.png" class="logo" alt="" width="50" height="50" style=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="@Url.Action("Landingpage", "Home")">Home</a></li>
+                <li><a href="@Url.Action("Index", "Shop")">Shop</a></li>
+                <li><a href="@Url.Action("Index", "Blog")">Blog</a></li>
+                <li><a href="@Url.Action("Index", "Contact")">Contact</a></li>
+                <li><a href="@Url.Action("Index", "Product")">Product Management</a></li>
+            </ul>
+        </div>
+    </section>
+    <section id="hero" style="height:600px">
+        <h4>Trade-in-Offer</h4>
+        <h2>Super Value Deals</h2>
+        <h1><u>On All Products</u></h1>
+        <p>Sace more with coupons & up to 70% off!</p>
+        <button>shop now</button>
+    </section>
+    <section id="hello">
+        <div id="slogan">
+            <h2><b>OUR FEATURES</b></h2>
+            <p><u>SUMMER HAS jUST STARTED</u></p>
+        </div>
+    </section>
+    <section id="ajju">
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </section>
+    <section id="kanxi">
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </section>
+    <section id="ballu">
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </section>
+    <section id="banner">
+        <h4><b>Repair Service</b></h4>
+        <h2><b>Up to 70% off All Acceassories </b></h2>
+        <button>Explore More</button>
+
+    </section>
+    <section id="summer">
+        <div id="Garmi">
+            <h2><b>NEW ARRIVALS </b></h2>
+            <h4><u>Summer Collection New Modal Design</u></h4>
+        </div>
+    </section>
+    <section id="ajju">
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="suman">
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="~/image/Logo.jpg" class="product-img">
+                    <div class="product-description">
+                        <h6>Addidas</h6>
+                        <h5>cartoon astronaut tshirts</h5>
+                        <div class="star">
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                            <p>&#9734;</p>
+                        </div>
+                        <div class="price">
+                            <p>$34</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </section>
+    <section id="collection">
+       
+
+
+    </section>
+    <section id="newsletter">
+        <div class="newstext">
+            <h4>Sign up For Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers</span></p>
+        </div>
+        <div id="form">
+            <input type="text" placeholder="your email address">
+            <button id="bttn">Sign up</button>
+        </div>
+
+    </section>
+    <footer class="foot">
+        <div class="cool">
+            <img src="~/image/pnglogo.png" width="40" height="40">
+            <h4>Contact</h4>
+            <p><strong>Address :</strong>5201 Summerhill Rd,Texarkana</p>
+            <p><strong>Phone :</strong>222 3333 2342, 543 456 3453</p>
+            <div class="follow">
+                <h5><u>Follow us</u></h5>
+                <div class="icon">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+
+                </div>
+
+
+        </div>
+     </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Pricacy Policy</a>
+            <a href="#">Terms & Condition</a>
+            <a href="#">Concact</a>
+
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

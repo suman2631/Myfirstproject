@@ -1,0 +1,286 @@
+﻿
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>printer home page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    @* <link rel="stylesheet" href="style.css">*@
+    <style>
+        body {
+            width: 100%;
+        }
+
+        #header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 60px;
+            margin-bottom: 0px;
+            background-color: aliceblue;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            left: 0;
+        }
+
+        #navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            #navbar li {
+                list-style: none;
+                padding: 0 20px;
+                position: relative;
+            }
+
+                #navbar li a {
+                    text-decoration: none;
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: black;
+                    transition: 0.3s ease;
+                }
+
+                    #navbar li a:hover,
+                    #navbar li a.active {
+                        color: blueviolet;
+                    }
+
+                        #navbar li a.active::after,
+                        #navbar li a:hover::after {
+                            content: "";
+                            width: 30%;
+                            height: 2px;
+                            background: brown;
+                            position: absolute;
+                            bottom: -4px;
+                            left: 20px;
+                        }
+
+        .dropdown-menu {
+            position: relative;
+            z-index: 9999;
+        }
+
+        .second {
+            margin: 20px 20px;
+            background-color: cornsilk;
+            height: 500px;
+        }
+
+        .third {
+            background-image: url('../../image/banner.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding-top: 0px;
+            height: 480px;
+            margin-left: 15px;
+            margin-right: 15px;
+            background-color: antiquewhite;
+        }
+
+            .third h2 {
+                text-align: right;
+                padding-top: 200px;
+                font-weight: 800;
+                padding-right: 50px;
+                color: white;
+                font-family: 'Times New Roman', Times, serif;
+            }
+
+            .third p {
+                text-align: right;
+                padding-right: 120px;
+                padding-top: 20px;
+                color: white;
+            }
+
+            .third button {
+                border-radius: 15%;
+                font-size: 12px;
+                height: 35px;
+                width: 90px;
+                color: white;
+                background-color: black;
+                text-align: center;
+                margin-left: 850px;
+            }
+
+                .third button:hover {
+                    background-color: yellowgreen;
+                    transition: 0.7s;
+                }
+
+        .ssecond {
+            margin-left: 20px;
+            padding-left: 30px;
+        }
+
+        .sfirst {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .sthird {
+            padding-right: 100px;
+        }
+
+        footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background-color: skyblue;
+        }
+
+            footer .col {
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 20px;
+                flex-direction: column;
+            }
+    </style>
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="~/image/pnglogo.png" class="logo" alt="" width="50" height="50" style=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="Landingpage.cshtml">Home</a></li>
+                <li><a href="shop.cshtml">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="@Url.Action("Index", "Contact")">Contact</a></li>
+                <li><a href="about.html">Product Management</a></li>
+            </ul>
+        </div>
+    </section>
+    <section>
+        <div class="first">
+            <div class="second">
+                <div class="third">
+                    <h2><b>Are you member of our business ?</b></h2>
+                    <p><i> if you are member of our business or on deadline <br />please submitte your request throug this form</i></p>
+                    <button>Contact US</button>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <section>
+        <div class="sfirst">
+            <div class="ssecond">
+                <h4><b>Web Support</b></h4>
+                <br />
+                <h4><b>GUEST SUPPORT AND COFFEE QUESTIONS</b></h4>
+                <p><u>support@crave.com</u></p>
+                <br />
+                <h4><b>BRAND PARTNERSHIP INQUIRIES</b></h4>
+                <p><u>brand@crave.com</u></p>
+                <br />
+                <h4><b>TRADE SHOW INQUIRIES</b></h4>
+                <p><u>bgp@crave.com</u></p>
+                <br />
+                <h4><b>CORPORATE GIFTING INQUIRIES</b></h4>
+                <p><u>gft@crave.com</u></p>
+                <br />
+                <h2><b>Our office</b></h2>
+
+
+            </div>
+            <div class="sthird">
+                <h3><b>Get in Touch</b></h3>
+                <h4><b>Name</b></h4>
+                <input type="text" placeholder="Enter your Name">
+                <br />
+                <h4><b>Email</b></h4>
+                <input type="text" placeholder="Enter your Email">
+                <br />
+                <h4><b>Subject</b></h4>
+                <input type="text" placeholder="Enter your Subject">
+                <br />
+                <h4><b>Message</b></h4>
+                <input type="text" placeholder="Enter your Message">
+                <br />
+                <h4><b>Subject</b></h4>
+                <input type="text" placeholder="Enter your Subject">
+                <br />
+                <h4><b>Message</b></h4>
+                <input type="text" placeholder="Enter your Message">
+                <br />
+
+            </div>
+
+        </div>
+    </section>
+    <footer class="foot">
+        <div class="cool">
+            <img src="~/image/pnglogo.png" width="40" height="40">
+            <h4>Contact</h4>
+            <p><strong>Address :</strong>5201 Summerhill Rd,Texarkana</p>
+            <p><strong>Phone :</strong>222 3333 2342, 543 456 3453</p>
+            <div class="follow">
+                <h5><u>Follow us</u></h5>
+                <div class="icon">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Pricacy Policy</a>
+            <a href="#">Terms & Condition</a>
+            <a href="#">Concact</a>
+
+        </div>
+    </footer>
+
+
+
+</body>
+</html>
+<div id="details">
+    <form id="pdetails">
+        <h5> Name of Product:</h5>
+        <input type="text" name="pname" placeholdr="Enter the product name">
+        </b>
+        <h4>Price of Product</h4>
+        <input type="text" name="price" placeholder="Enter the prie">
+        </br>
+        <h4>Description of product</h4>
+        <textarea name="description" placeholder="Enter the product description"></textarea>
+        <div>
+            <button type="submit">submit</button>
+        </div>
+
+
+    </form>
+
+</div>
+
+    
+
+
+
+    
