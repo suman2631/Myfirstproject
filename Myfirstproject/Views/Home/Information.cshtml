@@ -167,43 +167,47 @@
         {
 
 
-            <div class="form">
+    <div class="form">
 
 
 
-                <div class="input-field">
-                    <input type="text" name="Username" required>
-                    <label>Enter your Username</label>
-                </div>
-                <div class="input-field">
-                    <input type="password" name="password" required>
-                    <label>Enter your password</label>
-                </div>
-                <div class="hero">
+        <div class="input-field">
+            <input type="text" name="Username"value="@Model.Username" required>
+            <label>Enter your Username</label>
+        </div>
+        <div class="input-field">
+            <input type="password" name="password" required>
+            <label>Enter your password</label>
+        </div>
+        <div class="hero">
 
-                    <select name="Usertype" required>
-                        <option value="0">Select Usertype</option>
-                        <option value="1">Admin</option>
-                        <option value="2">User</option>
-                        <option value="3">Account</option>
-                    </select>
+            <select name="Usertype" required>
+                <option value="0">Select Usertype</option>
+                <option value="1">Admin</option>
+                <option value="2">User</option>
+                <option value="3">Account</option>
+            </select>
 
-                </div>
-                <div class="forget">
-                    <label for="remember">
-                        <input type="checkbox" id="remember">
-                        <p>Remember me</p>
-                    </label>
-                    <a href="#">Forgot password?</a>
-                </div>
-                <button type="submit">Log In</button>
-                <div class="register">
-                    <p>Don't have an account? <a href="#">Register</a></p>
-                </div>
+        </div>
+        <div class="forget">
+            <label for="remember">
+                <input type="checkbox" id="remember">
+                <p>Remember me</p>
+            </label>
+            <a href="#">Forgot password?</a>
+        </div>
+        <button type="submit">Log In</button>
+        <div class="links">
+            <a href="/UserRegistation/Index">Signup</a>
+        </div>
+        <div class="register">
+            <p>Don't have an account? <a href="#">Register</a></p>
+        </div>
 
 
 
-            </div>
+
+    </div>
         }
 
 

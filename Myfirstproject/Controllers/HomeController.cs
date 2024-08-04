@@ -9,10 +9,11 @@ namespace Myfirstproject.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Information()
+        public ActionResult Information(string userName)
         {
-          
-            return View();
+            Logindata logindata = new Logindata();
+            logindata.Username = userName;
+            return View(logindata);
         }
         public ActionResult CHECKLOGIN(Logindata logindata)
         {
@@ -21,7 +22,7 @@ namespace Myfirstproject.Controllers
             string usertype = logindata.Usertype;
             if(uname == "suman" && password == "12345")
             {
-                return View("Landingpage");
+                return View("Landingpage",logindata);
             }
             else
             {

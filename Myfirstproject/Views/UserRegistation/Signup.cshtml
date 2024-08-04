@@ -1,0 +1,145 @@
+﻿
+@{
+
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    @{Layout = null;}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+<script src="~/Scripts/jquery.validate.js"></script> <title>Our Index page </title>
+
+    <style>
+
+        #details {
+            background-color: skyblue;
+            align-content: center;
+        }
+
+        #fdetails {
+            text-align: center;
+            margin-left: 30%;
+            margin-right: 30%;
+            background-color: lightgray;
+        }
+
+        .welcome {
+            align-content: center;
+            text-align: center;
+        }
+
+        button {
+            margin-top: 15px;
+        }
+    </style>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#frmsignup").validate({
+                rules: {
+                    Name: { required: true },
+                    UserName: { required: true },
+                    Password: {
+                        required: true,
+                        minlength: 8
+                    },
+                    Email: { required: true, email: true },
+                    RePassword: {
+                        required: true,
+                        equalTo: "#Password",
+                        minlength: 8
+                    }
+                },
+                messages: {
+                    UserName: {
+                        required: "UserName is required"
+                    },
+                    RePassword: {
+                        equalTo: "Password mismatch"
+                    }
+                },
+                submitHandler: function (form) {
+                    debugger
+                    var f = $(form);
+                    var uname = $('#UserName').val();
+                    $.ajax({
+                        
+                        type: 'POST',
+                        url: f[0].action,
+                        data: f.serializeArray(),
+                        dataType: 'text',
+                        success: function (returnval) {
+                            debugger
+                            if (returnval == 'true') {
+                                location.href = '/Home/Information?userName=' + uname;
+                            }
+                            else {
+                                alert(returnval);
+                            }
+                        },
+                        error: function () {
+                            alert('AJAX call error');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+
+</head>
+<body>
+
+    <div id="details">
+        <div class="welcome">
+            <h2><b><u>WELCOME TO SIGNUP PAGE</u></b></h2>
+        </div>
+        <form id="frmsignup" action="/UserRegistation/Sdfetch" method="post" enctype="multipart/form-data">
+
+            <div id="fdetails">
+                <div>
+                    <h5><b>First Name:</b></h5>
+                    <input type="text" class="form-group" name="Name" placeholder="Enter your first Name">
+                </div>
+                <div class="input-group">
+                    <h5><b>Last Name:</b></h5>
+                    <input type="text" class="form-group" name="LastName" placeholder="Enter your Last Name">
+                </div>
+                <div class="input-group">
+                    <h5><b>Email:</b></h5>
+                    <input type="email" class="form-group" name="Email" placeholder="Enter your Gmail">
+                </div>
+                <div class="input-group">
+                    <h5><b>Phone Num:</b></h5>
+                    <input type="text" class="form-group" name="Phone" placeholder="Enter your Phone Numbr">
+                </div>
+                <div class="input-group">
+                    <h5><b>UserName:</b></h5>
+                    <input type="text" class="form-group" id="UserName" name="UserName" placeholder="Enter your UserName">
+                </div>
+                <div class="input-group">
+                    <h5><b>Password:</b></h5>
+                    <input type="text" class="form-group" id="Password" name="Password" placeholder="Enter your Password">
+                </div>
+                <div class="input-group">
+                    <h5><b>RePassword:</b></h5>
+                    <input type="text" class="form-group" id="RePassword" name="RePassword" placeholder="Enter your RePassword">
+                </div>
+
+                <button type="submit">Save</button>
+
+            </div>
+        </form>
+    </div>
+
+
+
+</body>
+</html>

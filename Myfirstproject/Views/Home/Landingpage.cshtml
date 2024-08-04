@@ -3,6 +3,7 @@
 @using Myfirstproject.Models
 @model Logindata
 @{
+    var test = Model.Username.ToString();
     Layout = null;
 }
 
@@ -335,7 +336,8 @@
 </head>
 <body>
     <section id="header">
-        <a href="#"><img src="~/image/pnglogo.png" class="logo" alt="" width="50" height="50" style=""></a>
+        <a href="#"><img src="~/image/pnglogo.png" class="logo" alt="" width="50" height="50" style=""><h5>Hi Mr.@test</h5></a>
+        
         <div>
             <ul id="navbar">
                 <li><a href="@Url.Action("Landingpage", "Home")">Home</a></li>
