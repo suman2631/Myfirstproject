@@ -25,6 +25,7 @@ namespace Myfirstproject.Controllers
             {
 
 
+
                 con.Open();
                 string sql = "insert into Firstproject(FName, LName, Email, Phone, UserName, Password, Repassword) Values (@name, @lastname, @email, @phone, @username, @password,@repassword)";
                 SqlCommand cmd = new SqlCommand(sql, con);
