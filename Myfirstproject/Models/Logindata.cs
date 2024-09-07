@@ -27,9 +27,11 @@ namespace Myfirstproject.Models
     }
     public class details
     {
-        public byte[] ImageData { get; set;}
+        public HttpPostedFileBase ImageData { get; set;}
+        public string pdcode { get; set;}
         public string productname { get; set;}
         public string price { get; set;}
         public string description { get; set;}
     }
+ 
 }
